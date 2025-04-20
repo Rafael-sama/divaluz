@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DivaLuz Semijoias - Elegância que Ilumina</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+            background-color: #EFE7DC;
+        }
+        
+        .title-font {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://blog.donadivasemijoias.com.br/wp-content/uploads/2020/09/Como-manter-o-brilho-das-semijoias.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .product-card {
+            transition: all 0.3s ease;
+        }
+        
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .custom-radio:checked + .custom-radio-label {
+            border-color: #9F7C38;
+            background-color: #F8F1E9;
+        }
+        
+        /* Classe para ocultar os produtos extras inicialmente */
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-[#EFE7DC]">
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/5548991463351" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Header/Navbar -->
+    <header class="bg-[#EFE7DC] shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+
+                <!-- Logo substituído pela imagem -->
+                <img src="img\logo\nomediva.jpg" alt="DivaLuz Semijoias" class="h-12 mr-3">
+		
+                <h1 class="title-font text-2xl font-bold text-[#9F7C38]">(48) 99146-3351</h1>
+
+            </div>
+
+		<nav class="hidden md:flex space-x-8">
+   		 <a href="#inicio" class="relative text-gray-700 hover:text-[#9F7C38] font-medium after:absolute after:bottom-[-3px] after:left-0 after:w-0 after:h-[2px] after:bg-[#9F7C38] after:transition-all after:duration-300 hover:after:w-full">Início</a>
+   		 <a href="#produtos" class="relative text-gray-700 hover:text-[#9F7C38] font-medium after:absolute after:bottom-[-3px] after:left-0 after:w-0 after:h-[2px] after:bg-[#9F7C38] after:transition-all after:duration-300 hover:after:w-full">Produtos</a>
+   		 <a href="#sobre" class="relative text-gray-700 hover:text-[#9F7C38] font-medium after:absolute after:bottom-[-3px] after:left-0 after:w-0 after:h-[2px] after:bg-[#9F7C38] after:transition-all after:duration-300 hover:after:w-full">Sobre</a>
+      		 <a href="#contato" class="relative text-gray-700 hover:text-[#9F7C38] font-medium after:absolute after:bottom-[-3px] after:left-0 after:w-0 after:h-[2px] after:bg-[#9F7C38] after:transition-all after:duration-300 hover:after:w-full">Contato</a>
+</nav>
+
+     <!--   menu navegação se o risco detransição em baixo 
+		<nav class="hidden md:flex space-x-8">
+                <a href="#inicio" class="text-gray-700 hover:text-[#9F7C38] font-medium">Início</a>
+                <a href="#produtos" class="text-gray-700 hover:text-[#9F7C38] font-medium">Produtos</a>
+                <a href="#sobre" class="text-gray-700 hover:text-[#9F7C38] font-medium">Sobre</a>
+                <a href="#contato" class="text-gray-700 hover:text-[#9F7C38] font-medium">Contato</a>
+            </nav> 
+	-->
+
+            <div class="md:hidden">
+                <button id="menu-toggle" class="text-[#9F7C38] focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-[#EFE7DC] py-2 px-4 shadow-lg">
+            <a href="#inicio" class="block py-2 text-[#9F7C38] font-medium">Início</a>
+            <a href="#produtos" class="block py-2 text-gray-700 font-medium">Produtos</a>
+            <a href="#sobre" class="block py-2 text-gray-700 font-medium">Sobre</a>
+            <a href="#contato" class="block py-2 text-gray-700 font-medium">Contato</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero-section min-h-screen flex items-center text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="title-font text-4xl md:text-6xl font-bold mb-6">Brilhe com Elegância</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">Descubra nossa coleção exclusiva de semijoias que combinam sofisticação e acessibilidade para realçar sua beleza única.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#produtos" class="bg-transparent hover:bg-[#EFE7DC] hover:text-[#9F7C38] text-white font-bold py-3 px-8 border-2 border-white rounded-full transition duration-300">Ver Coleção</a>
+                <a href="#contato" class="bg-transparent hover:bg-[#EFE7DC] hover:text-[#9F7C38] text-white font-bold py-3 px-8 border-2 border-white rounded-full transition duration-300">Encomendar</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Destaques -->
+    <section class="py-16 bg-[#EFE7DC]">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center p-6">
+                    <div class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-gem text-[#9F7C38] text-2xl"></i>
+                    </div>
+                    <h3 class="title-font text-xl font-bold mb-2 text-[#9F7C38]">Qualidade Premium</h3>
+                    <p class="text-gray-600">Nossas semijoias são cuidadosamente selecionadas para oferecer durabilidade e brilho que rivalizam com joias verdadeiras.</p>
+                </div>
+                <div class="text-center p-6">
+                    <div class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-heart text-[#9F7C38] text-2xl"></i>
+                    </div>
+                    <h3 class="title-font text-xl font-bold mb-2 text-[#9F7C38]">Design Exclusivo</h3>
+                    <p class="text-gray-600">Peças únicas que combinam tendências atuais com um toque de elegância atemporal.</p>
+                </div>
+                <div class="text-center p-6">
+                    <div class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-truck text-[#9F7C38] text-2xl"></i>
+                    </div>
+                    <h3 class="title-font text-xl font-bold mb-2 text-[#9F7C38]">Entrega Rápida</h3>
+                    <p class="text-gray-600">Entregamos em todo o Brasil com segurança e agilidade para você brilhar o quanto antes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Produtos -->
+    <section id="produtos" class="py-16 bg-[#EFE7DC]">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="title-font text-3xl md:text-4xl font-bold text-[#9F7C38] mb-4">Nossas Coleções</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Descubra peças que complementam seu estilo e elevam sua confiança.</p>
+            </div>
+            
+            <!-- Filtros -->
+            <!-- Substitua esta parte -->
+
+<div class="flex flex-wrap justify-center gap-4 mb-8">
+    <div class="flex items-center">
+        <input type="radio" id="todos" name="categoria" class="hidden custom-radio" checked>
+
+     <!--   <label for="destaques" class="custom-radio-label cursor-pointer px-4 py-2 border rounded-full text-sm font-medium">Destaques</label> -->
+
+	    <label for="destaques" class="bg-[#9F7C38] text-white px-4 py-2 rounded-full text-sm font-medium">Destaques</label>
+
+    </div>
+    <div class="flex items-center">
+       <!-- Antigo 
+  <a href="colares.html" class="custom-radio-label cursor-pointer px-4 py-2 border rounded-full text-sm font-medium" target="_blank">Colares</a>
+	-->
+
+        <a href="colares.html" class="border border-[#9F7C38] text-[#9F7C38] hover:bg-[#9F7C38] hover:text-white px-4 py-2 rounded-full text-sm font-medium transition" target="_blank">Colares</a>
+    </div>
+    <div class="flex items-center">
+	<!-- Antigo
+        <a href="brincos.html" class="custom-radio-label cursor-pointer px-4 py-2 border rounded-full text-sm font-medium" target="_blank">Brincos</a>
+	-->
+	<a href="brincos.html" class="border border-[#9F7C38] text-[#9F7C38] hover:bg-[#9F7C38] hover:text-white px-4 py-2 rounded-full text-sm font-medium transition" target="_blank">Brincos</a>
+    </div>
+    <div class="flex items-center">
+	<!-- Antigo
+        <a href="aneis.html" class="custom-radio-label cursor-pointer px-4 py-2 border rounded-full text-sm font-medium" target="_blank">Anéis</a>
+	-->
+	<a href="aneis.html" class="border border-[#9F7C38] text-[#9F7C38] hover:bg-[#9F7C38] hover:text-white px-4 py-2 rounded-full text-sm font-medium transition" target="_blank">Anéis</a>
+    </div>
+    <div class="flex items-center">
+	<!-- Antigo
+        <a href="pulseiras.html" class="custom-radio-label cursor-pointer px-4 py-2 border rounded-full text-sm font-medium" target="_blank">Pulseiras</a>
+	-->
+	<a href="pulseiras.html" class="border border-[#9F7C38] text-[#9F7C38] hover:bg-[#9F7C38] hover:text-white px-4 py-2 rounded-full text-sm font-medium transition" target="_blank">Pulseiras</a>
+    </div>
+    <div class="flex items-center">
+	<!-- Antigo
+        <a href="conjuntos.html" class="custom-radio-label cursor-pointer px-4 py-2 border rounded-full text-sm font-medium" target="_blank">Conjuntos</a>
+	-->
+	<a href="conjuntos.html" class="border border-[#9F7C38] text-[#9F7C38] hover:bg-[#9F7C38] hover:text-white px-4 py-2 rounded-full text-sm font-medium transition" target="_blank">Conjuntos</a>
+    </div>
+
+</div>
+            
+            <!-- Grid de Produtos - Visíveis inicialmente (4 primeiros produtos) -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+
+                <!-- Produto 1 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden">
+                        <img src="colar1.jpg" alt="Colar de Bolinha" class="w-full h-64 object-cover">
+
+                        <div class="absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">DESTAQUE</div>
+
+                    </div>
+                    <div class="p-4">
+                        <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Colar de Bolinha Dourada</h3>
+                        <p class="text-gray-600 text-sm mb-3">Elegância atemporal para qualquer ocasião</p>
+                        <div class="flex justify-between items-center">
+
+                            <span class="font-bold text-[#9F7C38]">R$ 73,80</span>
+
+       			   <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20esse%20item?." target="_blank" title="Fale conosco pelo WhatsApp">
+                            <button class="text-[#9F7C38] hover:text-amber-800">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+				</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Produto 2 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1370&q=80" alt="Brincos Folheados" class="w-full h-64 object-cover">
+
+                        <div class="absolute top-2 right-2 bg-[#C0C0C0] text-white text-xs font-bold px-2 py-1 rounded">PRATA "Teste"</div> 
+				
+			<BR>
+
+			<!-- Tirei o absolute -->
+                        <div class=" top-2 right-2 bg-[#C0C0C0] text-white text-xs font-bold px-2 py-1 rounded">Produto sem garantia "teste"</div> 
+
+		
+                    </div>
+                    <div class="p-4">
+                        <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brincos Folheados a Ouro</h3>
+                        <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu rosto</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-[#9F7C38]">R$ 59,90</span>
+       			   <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20código%200123456." target="_blank" title="Fale conosco pelo WhatsApp">
+                            <button class="text-[#9F7C38] hover:text-amber-800">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+				</a>
+
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Produto 3 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Anel de Pedra" class="w-full h-64 object-cover">
+                        <div class="absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">MAIS VENDIDO</div>
+
+                        <div class=" top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Produto sem garantia</div>
+
+
+                    </div>
+                    <div class="p-4">
+                        <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Anel de Pedra Colorida</h3>
+                        <p class="text-gray-600 text-sm mb-3">Toque de cor para suas mãos</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-[#9F7C38]">R$ 49,90</span>
+       			   <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20esse%20item?." target="_blank" title="Fale conosco pelo WhatsApp">
+                            <button class="text-[#9F7C38] hover:text-amber-800">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+				</a>
+
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Produto 4 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden">
+                        <img src="conjuntocoracao.JPG" alt="Pulseira Prata" class="w-full h-64 object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Conjunto Coração Vazado</h3>
+                        <p class="text-gray-600 text-sm mb-3">Delicadeza para qualquer ocasião</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-[#9F7C38]">R$ 79,90</span>
+       			   <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20esse%20item?." target="_blank" title="Fale conosco pelo WhatsApp">
+                            <button class="text-[#9F7C38] hover:text-amber-800">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+				</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Grid de Produtos - Ocultos inicialmente (8 produtos adicionais) -->
+            <!-- Adicionei a classe "hidden" para ocultar esta seção inicialmente -->
+            <div id="hidden-products" class="hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mt-8">
+
+                <!-- Produto 5 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Colar Pérola" class="w-full h-64 object-cover">
+                        <div class="absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">LANÇAMENTO</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Colar de Pérolas Douradas</h3>
+                        <p class="text-gray-600 text-sm mb-3">Sofisticação e elegância em um único colar</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-[#9F7C38]">R$ 99,90</span>
+       			   <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20esse%20item?." target="_blank" title="Fale conosco pelo WhatsApp">
+                            <button class="text-[#9F7C38] hover:text-amber-800">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+				</a>
+
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Produto 6 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Brincos Pérola" class="w-full h-64 object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brincos de Pérolas</h3>
+                        <p class="text-gray-600 text-sm mb-3">Clássicos que nunca saem de moda</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-[#9F7C38]">R$ 69,90</span>
+       			   <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20esse%20item?." target="_blank" title="Fale conosco pelo WhatsApp">
+                            <button class="text-[#9F7C38] hover:text-amber-800">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+				</a>
+
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Produto 7 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1370&q=80" alt="Anel Solitário" class="w-full h-64 object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Anel Solitário Prateado</h3>
+                        <p class="text-gray-600 text-sm mb-3">Simples e sofisticado para o dia a dia</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-[#9F7C38]">R$ 45,90</span>
+       			   <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20esse%20item?." target="_blank" title="Fale conosco pelo WhatsApp">
+                            <button class="text-[#9F7C38] hover:text-amber-800">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+				</a>
+
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Produto 8 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Pulseira Tennis" class="w-full h-64 object-cover">
+                        <div class="absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">DESTAQUE</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Pulseira Tennis Dourada</h3>
+                        <p class="text-gray-600 text-sm mb-3">Brilho intenso para seu pulso</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-[#9F7C38]">R$ 119,90</span>
+       			   <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20esse%20item?." target="_blank" title="Fale conosco pelo WhatsApp">
+                            <button class="text-[#9F7C38] hover:text-amber-800">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+				</a>
+
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Produto 9 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Conjunto Prata" class="w-full h-64 object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Conjunto Prata e Zircônia</h3>
+                        <p class="text-gray-600 text-sm mb-3">Brilho que encanta em todas as ocasiões</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-[#9F7C38]">R$ 149,90</span>
+       			   <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20esse%20item?." target="_blank" title="Fale conosco pelo WhatsApp">
+                            <button class="text-[#9F7C38] hover:text-amber-800">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+				</a>
+
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Produto 10 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1370&q=80" alt="Brincos Argola" class="w-full h-64 object-cover">
+                        <div class="absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">PROMOÇÃO</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brincos Argola Grande</h3>
+                        <p class="text-gray-600 text-sm mb-3">Tendência que nunca sai de moda</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-[#9F7C38]">R$ 54,90</span>
+       			   <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20esse%20item?." target="_blank" title="Fale conosco pelo WhatsApp">
+                            <button class="text-[#9F7C38] hover:text-amber-800">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+				</a>
+
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Produto 11 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Anel Duplo" class="w-full h-64 object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Anel Duplo Entrelaçado</h3>
+                        <p class="text-gray-600 text-sm mb-3">Design moderno e cheio de personalidade</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-[#9F7C38]">R$ 65,90</span>
+       			   <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20esse%20item?." target="_blank" title="Fale conosco pelo WhatsApp">
+                            <button class="text-[#9F7C38] hover:text-amber-800">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+				</a>
+
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Produto 12 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Pulseira Pandora" class="w-full h-64 object-cover">
+                        <div class="absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">ESGOTANDO</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Pulseira com Pingentes</h3>
+                        <p class="text-gray-600 text-sm mb-3">Personalize com seus pingentes favoritos</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-[#9F7C38]">R$ 89,90</span>
+       			   <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20esse%20item?." target="_blank" title="Fale conosco pelo WhatsApp">
+                            <button class="text-[#9F7C38] hover:text-amber-800">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+				</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <!-- Botão para mostrar/ocultar produtos adicionais -->
+                <button id="show-more-btn" class="inline-block border-2 border-[#9F7C38] text-[#9F7C38] hover:bg-[#9F7C38] hover:text-white font-bold py-3 px-8 rounded-full transition duration-300">Ver Todos os Destaques</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre -->
+    <section id="sobre" class="py-16 bg-[#EFE7DC]">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 mb-8 lg:mb-0 lg:pr-12">
+                    <img src="https://videos.openai.com/vg-assets/assets%2Ftask_01js5xkxa3fyvsbwf7603ka0bx%2Fimg_0.webp?st=2025-04-19T01%3A22%3A49Z&se=2025-04-25T02%3A22%3A49Z&sks=b&skt=2025-04-19T01%3A22%3A49Z&ske=2025-04-25T02%3A22%3A49Z&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skoid=3d249c53-07fa-4ba4-9b65-0bf8eb4ea46a&skv=2019-02-02&sv=2018-11-09&sr=b&sp=r&spr=https%2Chttp&sig=clHTUtVs4c3LlGIhHCtic%2Fx7zRjWLzP9HIo6us1H0ms%3D&az=oaivgprodscus" alt="Sobre a DivaLuz" class="rounded-lg shadow-lg w-full">
+                </div>
+                <div class="lg:w-2/3"> <!-- diminui o tamanho, original é lg:w-1/2 -->
+
+                    <h2 class="title-font text-3xl md:text-4xl font-bold text-[#9F7C38] mb-6">Nossa História</h2>
+                    <p class="text-gray-600 mb-4">A DivaLuz Semijoias nasceu da paixão por acessórios que combinam qualidade, beleza e preço acessível. Acreditamos que toda mulher merece se sentir especial e radiante, sem precisar investir fortunas em joias tradicionais.</p>
+                    <p class="text-gray-600 mb-6">Nossas peças são cuidadosamente selecionadas e produzidas com materiais de alta qualidade, garantindo durabilidade e brilho que encantam. Cada coleção é pensada para atender diferentes estilos e ocasiões, desde o dia a dia até eventos especiais.</p>
+                    <div class="flex flex-wrap gap-4">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 bg-amber-100 rounded-full flex items-center justify-center mr-3">
+                                <i class="fas fa-check text-[#9F7C38]"></i>
+                            </div>
+                            <span class="font-medium">Materiais de qualidade</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 bg-amber-100 rounded-full flex items-center justify-center mr-3">
+                                <i class="fas fa-check text-[#9F7C38]"></i>
+                            </div>
+                            <span class="font-medium">Design exclusivo</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 bg-amber-100 rounded-full flex items-center justify-center mr-3">
+                                <i class="fas fa-check text-[#9F7C38]"></i>
+                            </div>
+                            <span class="font-medium">Atendimento personalizado</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Depoimentos -->
+    <section class="py-16 bg-[#EFE7DC]">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="title-font text-3xl md:text-4xl font-bold text-[#9F7C38] mb-4">O que nossas clientes dizem</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">A satisfação de nossas clientes é nossa maior recompensa</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Depoimento 1 -->
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-gray-300 overflow-hidden mr-4">
+                            <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Ana Silva" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">Ana Silva</h4>
+                            <div class="flex text-[#9F7C38]">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"Comprei um colar da DivaLuz e estou apaixonada! O brilho é incrível e já recebi vários elogios. A qualidade superou minhas expectativas."</p>
+                </div>
+                
+                <!-- Depoimento 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-gray-300 overflow-hidden mr-4">
+                            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Juliana Santos" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">Juliana Santos</h4>
+                            <div class="flex text-[#9F7C38]">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"Os brincos que comprei são lindos e muito confortáveis. Não causam alergia e o brilho continua perfeito mesmo depois de meses de uso."</p>
+                </div>
+                
+                <!-- Depoimento 3 -->
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-gray-300 overflow-hidden mr-4">
+                            <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Carla Mendes" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">Carla Mendes</h4>
+                            <div class="flex text-[#9F7C38]">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"Atendimento excelente e produtos de ótima qualidade. Comprei várias peças e todas chegaram perfeitas, exatamente como nas fotos."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contato" class="py-16 bg-[#EFE7DC]">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="title-font text-3xl md:text-4xl font-bold text-[#9F7C38] mb-4">Entre em Contato</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Tire suas dúvidas, faça encomendas ou envie sugestões. Estamos aqui para ajudar!</p>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="lg:w-1/2">
+                    <form id="contact-form" class="space-y-6">
+                        <div>
+                            <label for="nome" class="block text-gray-700 font-medium mb-2">Seu Nome</label>
+                            <input type="text" id="nome" name="nome" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#9F7C38] focus:border-[#9F7C38] outline-none transition">
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-gray-700 font-medium mb-2">Seu E-mail</label>
+                            <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#9F7C38] focus:border-[#9F7C38] outline-none transition">
+                        </div>
+                        
+                        <div>
+                            <label for="telefone" class="block text-gray-700 font-medium mb-2">Seu Telefone (opcional)</label>
+                            <input type="tel" id="telefone" name="telefone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#9F7C38] focus:border-[#9F7C38] outline-none transition">
+                        </div>
+                        
+                        <div>
+                            <label for="assunto" class="block text-gray-700 font-medium mb-2">Assunto</label>
+                            <select id="assunto" name="assunto" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#9F7C38] focus:border-[#9F7C38] outline-none transition">
+                                <option value="duvida">Dúvida sobre produtos</option>
+                                <option value="encomenda">Encomenda especial</option>
+                                <option value="sugestao">Sugestão</option>
+                                <option value="outro">Outro</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="mensagem" class="block text-gray-700 font-medium mb-2">Sua Mensagem</label>
+
+                            <textarea id="mensagem" name="mensagem" rows="5" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#9F7C38] focus:border-[#9F7C38] outline-none transition"></textarea>
+                        </div>
+                        
+                        <div>
+<button type="submit" class="w-full bg-[#9F7C38] text-white font-bold py-3 px-6 rounded-lg transition duration-300 hover:bg-white hover:text-[#9F7C38] hover:border hover:border-[#9F7C38] hover:border-2">Enviar Mensagem</button>
+
+     <!--   class="bg-transparent hover:bg-[#EFE7DC] hover:text-[#9F7C38] text-white font-bold py-3 px-8 border-2 border-white rounded-full transition duration-300 -->
+
+
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <div class="bg-white p-8 rounded-lg h-full">
+                        <h3 class="title-font text-2xl font-bold text-[#9F7C38] mb-6">Outras formas de contato</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 bg-amber-100 rounded-full flex items-center justify-center mr-4 mt-1">
+                                    <i class="fas fa-envelope text-[#9F7C38]"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800 mb-1">E-mail</h4>
+                                    <a href="mailto:contato@divaluzsemijoias.com.br" class="text-gray-600 hover:text-[#9F7C38]">contato@divaluzsemijoias.com.br</a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 bg-amber-100 rounded-full flex items-center justify-center mr-4 mt-1">
+                                    <i class="fas fa-phone-alt text-[#9F7C38]"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800 mb-1">Telefone</h4>
+                                    <a href="tel:+5548991463351" class="text-gray-600 hover:text-[#9F7C38]">(48) 99146-3351</a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 bg-amber-100 rounded-full flex items-center justify-center mr-4 mt-1">
+                                    <i class="fab fa-whatsapp text-[#9F7C38]"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800 mb-1">WhatsApp</h4>
+                                    <a href="https://wa.me/5548991463351" target="_blank" class="text-gray-600 hover:text-[#9F7C38]">(48) 99146-3351</a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 bg-amber-100 rounded-full flex items-center justify-center mr-4 mt-1">
+                                    <i class="fas fa-map-marker-alt text-[#9F7C38]"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800 mb-1">Endereço</h4>
+                                    <p class="text-gray-600">  <!--Rua dos Lagos, 450 - Aririú <br> --> Palhoça/SC</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <h4 class="font-bold text-gray-800 mb-4">Horário de Atendimento</h4>
+                            <ul class="space-y-2 text-gray-600">
+                                <li class="flex justify-between">
+                                    <span>Segunda a Sexta</span>
+                                    <span>09:00 - 18:00</span>
+                                </li>
+                                <li class="flex justify-between">
+                                    <span>Sábado</span>
+                                    <span>09:00 - 12:00</span>
+                                </li>
+                                <li class="flex justify-between">
+                                    <span>Domingo</span>
+                                    <span>Fechado</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="py-16 bg-[#9F7C38] text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="title-font text-3xl md:text-4xl font-bold mb-6">Receba Nossas Novidades</h2>
+            <p class="text-amber-100 max-w-2xl mx-auto mb-8">Cadastre-se para receber lançamentos, promoções exclusivas e dicas de como usar suas semijoias.</p>
+            
+            <form class="max-w-md mx-auto flex flex-col sm:flex-row gap-2">
+                <input type="email" placeholder="Seu melhor e-mail" required class="flex-grow px-4 py-3 rounded-lg focus:outline-none text-gray-800">
+                <button type="submit" class="bg-transparent hover:bg-[#EFE7DC] hover:text-[#9F7C38] text-white font-bold py-3 px-8 border-2 border-white rounded-full transition duration-300 whitespace-nowrap">Cadastrar</button>
+
+
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <img src="img\logo\nomediva.jpg" alt="DivaLuz Semijoias" class="h-10 mr-3">
+                        <h3 class="title-font text-xl font-bold">DivaLuz Semijoias</h3>
+                    </div>
+                    <p class="text-gray-400">Elegância que ilumina seu estilo com qualidade e sofisticação.</p>
+                    <div class="flex space-x-4 mt-4">
+			<a href="https://www.instagram.com/semijoiasdivaluz?igsh=M20zamlrcG10aWph" class="text-gray-400 hover:text-[#9F7C38]" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/semijoiasdivaluz?igsh=M20zamlrcG10aWph" class="text-gray-400 hover:text-[#9F7C38]" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.instagram.com/semijoiasdivaluz?igsh=M20zamlrcG10aWph" class="text-gray-400 hover:text-[#9F7C38]" target="_blank"><i class="fab fa-pinterest-p"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="title-font font-bold text-lg mb-4">Links Úteis</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#inicio" class="text-gray-400 hover:text-[#9F7C38] transition">Início</a></li>
+                        <li><a href="#produtos" class="text-gray-400 hover:text-[#9F7C38] transition">Produtos</a></li>
+                        <li><a href="#sobre" class="text-gray-400 hover:text-[#9F7C38] transition">Sobre Nós</a></li>
+                        <li><a href="#contato" class="text-gray-400 hover:text-[#9F7C38] transition">Contato</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-[#9F7C38] transition">Política de Privacidade</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="title-font font-bold text-lg mb-4">Minha Conta</h4>
+                    <ul class="space-y-2">
+                        <li><a href="https://wa.me/48991463351" class="text-gray-400 hover:text-[#9F7C38] transition">Minha Conta</a></li>
+                        <li><a href="https://wa.me/48991463351" class="text-gray-400 hover:text-[#9F7C38] transition">Meus Pedidos</a></li>
+                        <li><a href="https://wa.me/48991463351" class="text-gray-400 hover:text-[#9F7C38] transition">Lista de Desejos</a></li>
+                        <li><a href="https://wa.me/48991463351" class="text-gray-400 hover:text-[#9F7C38] transition">Rastreamento</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="title-font font-bold text-lg mb-4 ">Formas de Pagamento</h4>
+                    <div class="grid grid-cols-3 gap-2">
+                        <div class="bg-gray-800 p-2 rounded flex items-center justify-center">
+                            <i class="fab fa-cc-visa text-2xl"></i>
+                        </div>
+                        <div class="bg-gray-800 p-2 rounded flex items-center justify-center">
+                            <i class="fab fa-cc-mastercard text-2xl"></i>
+                        </div>
+                        <div class="bg-gray-800 p-2 rounded flex items-center justify-center">
+                            <i class="fab fa-cc-amex text-2xl"></i>
+                        </div>
+              <!--      <div class="bg-gray-800 p-2 rounded flex items-center justify-center">
+                            <i class="fab fa-cc-paypal text-2xl"></i>
+                        </div>                                                                  -->
+                        <div class="bg-gray-800 p-2 rounded flex items-center justify-center">
+                            <i class="fas fa-barcode text-2xl"></i>
+                        </div>
+                        <div class="bg-gray-800 p-2 rounded flex items-center justify-center">
+                            <i class="fas fa-money-bill-wave text-2xl"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-[#9F7C38]">
+                <p>&copy; 2025 DivaLuz Semijoias. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Menu mobile toggle
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Form submission (simulado)
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Aqui você normalmente enviaria o formulário para o servidor
+            // Este é apenas um exemplo de simulação
+            
+            // Pegar valores do formulário
+            const nome = document.getElementById('nome').value;
+            const email = document.getElementById('email').value;
+            
+            // Mostrar mensagem de sucesso
+            alert(`Obrigado, ${nome}! Sua mensagem foi enviada com sucesso. Entraremos em contato pelo e-mail ${email} em breve.`);
+            
+            // Limpar formulário
+            this.reset();
+        });
+
+        // Filtro de produtos (simulado)
+        const radios = document.querySelectorAll('input[name="categoria"]');
+        radios.forEach(radio => {
+            radio.addEventListener('change', function() {
+                // Aqui você normalmente filtraria os produtos com base na categoria selecionada
+                // Este é apenas um exemplo de simulação
+                console.log(`Filtrando por: ${this.id}`);
+            });
+        });
+
+        // Scroll suave para links internos
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Fechar menu mobile se aberto
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+
+        // Mostrar mais produtos - Função corrigida
+        document.getElementById('show-more-btn').addEventListener('click', function() {
+            // Seleciona a div que contém os produtos ocultos
+            const hiddenProducts = document.getElementById('hidden-products');
+            
+            // Verifica se os produtos estão ocultos (tem a classe 'hidden')
+            if (hiddenProducts.classList.contains('hidden')) {
+                // Remove a classe 'hidden' para mostrar os produtos
+                hiddenProducts.classList.remove('hidden');
+                // Muda o texto do botão para "Mostrar Menos"
+                this.textContent = 'Mostrar Menos';
+            } else {
+                // Adiciona a classe 'hidden' para ocultar os produtos
+                hiddenProducts.classList.add('hidden');
+                // Muda o texto do botão para "Ver Todos os Produtos"
+                this.textContent = 'Ver Todos os Produtos';
+            }
+            
+            // Rolagem suave para a seção de produtos
+            document.getElementById('produtos').scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>
